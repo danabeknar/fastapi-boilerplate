@@ -35,3 +35,7 @@ class AuthRepository:
             }
         )
         return user
+
+    def update_user(self, user_id: str, user: dict):
+        self.database["users"].updateOne({"_id": user_id}, {set: user})
+        return user
